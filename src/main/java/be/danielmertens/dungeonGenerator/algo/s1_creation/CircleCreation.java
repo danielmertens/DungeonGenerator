@@ -38,7 +38,8 @@ public class CircleCreation extends Algorithm {
 	}
 	
 	public Room generateRoom(int width, int height) {
-		Position pos = getRandomPointInCircle(height / 3);
+		//Position pos = getRandomPointInCircle(height / 3);
+		Position pos = getRandomPointInCircle((int) (Measurements.ROOM_HEIGHT_MAX * 2.0));
 		Position dim = getRoomWidthHeight();
 		return new Room(pos.getX() + width / 2 - dim.getX() / 2, pos.getY() + height / 2 - dim.getY() / 2, dim.getX(), dim.getY());
 	}

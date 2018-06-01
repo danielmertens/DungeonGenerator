@@ -27,9 +27,13 @@ public class PrimMST extends Algorithm {
 		LazyPrimMST mst = new LazyPrimMST(ewg);
 		ArrayList<Edge> mstEdges = new ArrayList<>();
 		Iterator<Edge> it = mst.edges().iterator();
+		double distanceSum = 0;
 		while(it.hasNext()) {
-			mstEdges.add(it.next());
+			Edge e = it.next();
+			mstEdges.add(e);
+			distanceSum += e.weight();
 		}
+		double distanceMean = (distanceSum / originalEdges.length) * 0.9;
 		m.graph = mstEdges.toArray(new Edge[mstEdges.size()]);
 		repaint(4000);
 		
@@ -39,7 +43,7 @@ public class PrimMST extends Algorithm {
 		System.out.println("Adding " + addNumber + " edges");
 		while(addNumber > 0) {
 			int index = random().nextInt(originalEdges.length);
-			if(!mstEdges.contains(originalEdges[index])) {
+			if(!mstEdges.contains(originalEdges[index]) && originalEdges[index].weight() > distanceMean) {
 				mstEdges.add(originalEdges[index]);
 				addNumber--;
 			}
