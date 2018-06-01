@@ -78,7 +78,6 @@ public class Dijkstra_FirstAvailable extends Algorithm {
 		List<Room> locked = list.stream().filter((r) -> r.locked).collect(Collectors.toList());
 		boolean overlap = locked.stream().anyMatch((r) -> room.overlaps(r));
 		if(!overlap) {
-			//room.locked = true;
 			return null;
 		}
 		
@@ -93,7 +92,6 @@ public class Dijkstra_FirstAvailable extends Algorithm {
 			if(n == null) break;
 			overlap = locked.stream().anyMatch((r) -> room.overlaps(r));
 			if(!overlap) {
-				//room.locked = true;
 				return createPath(n);
 			}
 			if(!visited.contains(n)) {

@@ -32,14 +32,10 @@ public class MeanSelection extends Algorithm {
 		widthMean *= 1.50;
 		heightMean *= 1.50;
 		
+		// Just a check for the difference between the current and previous selection process.
 		for (Room room : m.getRooms()) {
 			if(room.getArea()  > minBound) {
-				//room.setSelected(true);
 				count++;
-				//v.setMessage("Selected rooms: " + count);
-//				if(!fast) {
-//					repaint(300);
-//				}
 			}
 		}
 		System.out.println("original selected " + count);

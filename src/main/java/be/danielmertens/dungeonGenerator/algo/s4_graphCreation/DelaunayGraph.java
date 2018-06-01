@@ -59,15 +59,6 @@ public class DelaunayGraph extends Algorithm {
 						edges.add(new Edge(edgeNodes[i].room.getNumber(), edgeNodes[j].room.getNumber(), edgeNodes[i].room.distaceFrom(edgeNodes[j].room)));
 						edges.add(new Edge(edgeNodes[i].room.getNumber(), edgeNodes[k].room.getNumber(), edgeNodes[i].room.distaceFrom(edgeNodes[k].room)));
 						edges.add(new Edge(edgeNodes[j].room.getNumber(), edgeNodes[k].room.getNumber(), edgeNodes[j].room.distaceFrom(edgeNodes[k].room)));
-						
-//						edges[i].addEdge(edges[j]);
-//						edges[i].addEdge(edges[k]);
-//						
-//						edges[j].addEdge(edges[i]);
-//						edges[j].addEdge(edges[k]);
-//						
-//						edges[k].addEdge(edges[j]);
-//						edges[k].addEdge(edges[i]);
 					}
 				}
 			}
@@ -88,7 +79,6 @@ public class DelaunayGraph extends Algorithm {
 	    	System.out.println(p2);
 	    	System.out.println(p3);
 	    	System.out.println(det);
-	    	//throw new IllegalArgumentException("Yeah, lazy.");
 	    	System.out.println("Not all graph paths got created.");
 	    	return null;
 	    }

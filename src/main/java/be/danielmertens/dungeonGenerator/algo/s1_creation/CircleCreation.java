@@ -23,7 +23,6 @@ public class CircleCreation extends Algorithm {
 		System.out.println("start algo.");
 		int count = 0;
 		while(count < 150) {
-			//System.out.println(count);
 			Room r = generateRoom(width / Measurements.GRIDSIZE, height / Measurements.GRIDSIZE);
 			r.setNumber(count);
 			m.addRoom(r);
