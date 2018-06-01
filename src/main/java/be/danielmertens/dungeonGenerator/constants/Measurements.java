@@ -2,7 +2,7 @@ package be.danielmertens.dungeonGenerator.constants;
 
 public class Measurements {
 
-	public static final int GRIDSIZE = 20;
+	public static final int GRIDSIZE = 16;
 	
 	public static int ROOM_HEIGHT_MAX = 15;
 	public static int ROOM_HEIGHT_MIN = 2;

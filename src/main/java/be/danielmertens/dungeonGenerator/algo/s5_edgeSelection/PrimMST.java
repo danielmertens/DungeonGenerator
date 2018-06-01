@@ -18,21 +18,29 @@ public class PrimMST extends Algorithm {
 	@Override
 	protected void run(boolean fast) {
 		EdgeWeightedGraph ewg = new EdgeWeightedGraph(m.getRooms().size());
-		for (Edge edge : m.graph) {
+		Edge[] originalEdges = m.graph;
+		
+		for (Edge edge : originalEdges) {
 			ewg.addEdge(edge);
 		}
+		
 		LazyPrimMST mst = new LazyPrimMST(ewg);
 		ArrayList<Edge> mstEdges = new ArrayList<>();
 		Iterator<Edge> it = mst.edges().iterator();
 		while(it.hasNext()) {
 			mstEdges.add(it.next());
 		}
+		m.graph = mstEdges.toArray(new Edge[mstEdges.size()]);
+		repaint(4000);
+		
+		// Adding some edges back to the pool
 		int mstSize = mstEdges.size();
-		int addNumber = (int) ((m.graph.length - mstSize) * 0.1);
+		int addNumber = (int) (originalEdges.length * 0.1);
+		System.out.println("Adding " + addNumber + " edges");
 		while(addNumber > 0) {
-			int index = random().nextInt(m.graph.length);
-			if(!mstEdges.contains(m.graph[index])) {
-				mstEdges.add(m.graph[index]);
+			int index = random().nextInt(originalEdges.length);
+			if(!mstEdges.contains(originalEdges[index])) {
+				mstEdges.add(originalEdges[index]);
 				addNumber--;
 			}
 		}
