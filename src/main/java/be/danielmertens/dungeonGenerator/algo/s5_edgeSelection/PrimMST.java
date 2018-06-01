@@ -27,6 +27,15 @@ public class PrimMST extends Algorithm {
 		while(it.hasNext()) {
 			mstEdges.add(it.next());
 		}
+		int mstSize = mstEdges.size();
+		int addNumber = (int) ((m.graph.length - mstSize) * 0.1);
+		while(addNumber > 0) {
+			int index = random().nextInt(m.graph.length);
+			if(!mstEdges.contains(m.graph[index])) {
+				mstEdges.add(m.graph[index]);
+				addNumber--;
+			}
+		}
 		m.graph = mstEdges.toArray(new Edge[mstEdges.size()]);
 		setMessage("Next step");
 		repaint(200);
